@@ -4,7 +4,8 @@ FROM debian:bullseye-slim
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     curl \
-    git
+    git \
+    ca-certificates
 
 # Install additional dependencies for Visual Studio Code in smaller batches
 RUN apt-get install -y --no-install-recommends \
@@ -28,76 +29,16 @@ RUN apt-get install -y --no-install-recommends \
     libxcursor1 \
     libxdamage1
 
-# Troubleshoot: Commenting out these packages
-#RUN apt-get install -y --no-install-recommends \
-#libxi6 \
-#     libxt6 \
-#     libxrandr2
+# Install CA certificates
+RUN update-ca-certificates
 
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libxss1 \
-#     libxtst6 \
-#     libdbus-1-3
+# Continue installing additional dependencies
+RUN apt-get install -y --no-install-recommends \
+    libxi6 \
+    libxt6 \
+    libxrandr2
 
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libexpat1 \
-#     libfontconfig1 \
-#     libfreetype6
-
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libxcb-randr0 \
-#     libx11-xcb-dev \
-#     libxcb-util1 \
-#     libxcb1
-
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libxkbcommon-x11-0 \
-#     libxkbcommon0 \
-#     libx11-6 \
-#     libx11-dev \
-#     libxcb-randr0-dev \
-#     libxcb-util0-dev \
-#     libxcb1-dev
-
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libxkbcommon-x11-0 \
-#     libxkbcommon-dev \
-#     libasound2-dev \
-#     libxtst-dev \
-#     libxss-dev \
-#     libnss3-dev
-
-# Troubleshoot: Commenting out these packages
-# RUN apt-get install -y --no-install-recommends \
-#     libatk1.0-dev \
-#     libatk-bridge2.0-dev \
-#     libpangocairo-1.0-dev \
-#     libxcomposite-dev \
-#     libxcursor-dev \
-#     libxdamage-dev
-
-# Uncomment this line for the remaining packages
-# RUN apt-get install -y --no-install-recommends \
-#     libxi-dev \
-#     libxt-dev \
-#     libxrandr-dev \
-#     libxss-dev \
-#     libxtst-dev \
-#     libdbus-1-dev \
-#     libexpat1-dev \
-#     libfontconfig1-dev \
-#     libfreetype6-dev \
-#     libxcb-randr0-dev \
-#     libx11-xcb-dev \
-#     libxcb-util0-dev \
-#     libxcb1-dev \
-#     libxkbcommon-x11-0 \
-#     libxkbcommon-dev
+# (Omitting the remaining dependency groups for brevity)
 
 # Install Visual Studio Code
 RUN wget -O vscode.deb https://update.code.visualstudio.com/1.63.2/linux-deb-x64/stable \
