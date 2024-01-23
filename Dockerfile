@@ -25,4 +25,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 EXPOSE 8080
 EXPOSE 443
 # Start Visual Studio Code as root
-CMD ["code", "--no-sandbox", "--user-data-dir=/root", "--port=8080"]
+CMD ["code", "--no-sandbox", "--user-data-dir=/root"]
+
