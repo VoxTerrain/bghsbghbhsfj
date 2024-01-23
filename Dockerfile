@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git
 
-# Install additional dependencies for Visual Studio Code
+# Install additional dependencies for Visual Studio Code in smaller batches
 RUN apt-get install -y --no-install-recommends \
     libx11-xcb1 \
     libxcb-dri3-0 \
@@ -16,7 +16,9 @@ RUN apt-get install -y --no-install-recommends \
     libgtk-3-0 \
     libnss3 \
     libgconf-2-4 \
-    libasound2 \
+    libasound2
+
+RUN apt-get install -y --no-install-recommends \
     libxtst6 \
     libxss1 \
     libatk1.0-0 \
@@ -27,7 +29,9 @@ RUN apt-get install -y --no-install-recommends \
     libxdamage1 \
     libxi6 \
     libxt6 \
-    libxrandr2 \
+    libxrandr2
+
+RUN apt-get install -y --no-install-recommends \
     libxss1 \
     libxtst6 \
     libdbus-1-3 \
@@ -37,26 +41,34 @@ RUN apt-get install -y --no-install-recommends \
     libxcb-randr0 \
     libx11-xcb-dev \
     libxcb-util1 \
-    libxcb1 \
+    libxcb1
+
+RUN apt-get install -y --no-install-recommends \
     libxkbcommon-x11-0 \
     libxkbcommon0 \
     libx11-6 \
     libx11-dev \
     libxcb-randr0-dev \
     libxcb-util0-dev \
-    libxcb1-dev \
+    libxcb1-dev
+
+RUN apt-get install -y --no-install-recommends \
     libxkbcommon-x11-0 \
     libxkbcommon-dev \
     libasound2-dev \
     libxtst-dev \
     libxss-dev \
-    libnss3-dev \
+    libnss3-dev
+
+RUN apt-get install -y --no-install-recommends \
     libatk1.0-dev \
     libatk-bridge2.0-dev \
     libpangocairo-1.0-dev \
     libxcomposite-dev \
     libxcursor-dev \
-    libxdamage-dev \
+    libxdamage-dev
+
+RUN apt-get install -y --no-install-recommends \
     libxi-dev \
     libxt-dev \
     libxrandr-dev \
@@ -64,7 +76,9 @@ RUN apt-get install -y --no-install-recommends \
     libxtst-dev \
     libdbus-1-dev \
     libexpat1-dev \
-    libfontconfig1-dev \
+    libfontconfig1-dev
+
+RUN apt-get install -y --no-install-recommends \
     libfreetype6-dev \
     libxcb-randr0-dev \
     libx11-xcb-dev \
