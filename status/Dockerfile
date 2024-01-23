@@ -8,7 +8,10 @@ WORKDIR /app
 RUN git clone https://github.com/louislam/uptime-kuma.git .
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
+
+# Build the Uptime Kuma application
+RUN npm run build
 
 # Expose port 3001
 EXPOSE 3001
